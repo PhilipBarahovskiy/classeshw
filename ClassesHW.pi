@@ -1,0 +1,63 @@
+register =[]
+class animal():
+    status = 'unfeed'
+    sound = ""
+    product = ""
+
+    def __init__(self, name, weight):
+        self.name = name 
+        self.weight = weight
+        register.append(self)
+
+    def voice(self):
+        print(self.sound)
+
+    def collect(self):
+        print(f'{self.product} collected')
+
+    def feed(self):
+        self.status = 'feeded'
+
+
+class bird(animal):
+    product = "eggs"
+class cattle(animal):
+    product = "milk"
+class sheep(animal):
+    sound = "бе-бе"
+    product = "wool"
+class goat(cattle):
+    sound = "ме-ме"
+class cow(cattle):
+    sound = "му-му"
+class goose(bird):
+    sound = "га-га"
+class chicken(bird):
+    sound = "ко-ко"
+class duck(bird):
+    sound = "кря-кря"
+
+
+#Машка = goat("Машка", 50)
+#Петька = goat("Петька", 60)
+#Васька = duck("Васька", 10)
+#print(Машка.name)
+#print(Машка.weight)
+#Машка.voice()
+#Машка.collect() ПРОВЕРКА
+def name_max_weight():
+    name = ""
+    max_weight = 0
+    for animal in register:
+        if animal.weight >= max_weight:
+            max_weight = animal.weight
+            name_max_weight = animal.name
+    return name_max_weight
+def total_weight():
+    total_weight = 0
+    for animal in register:
+        total_weight += animal.weight
+    return total_weight
+
+#print(name_max_weight())
+#print(total_weight()) ПРОВЕРКА
